@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% comment %}
+        Hide the sidebar and center the main content
+    {% endcomment %}
+    <script type="text/javascript">
+        $('#sidebar').hide;
+        $('#content').css("width", "100%");
+     </script>
+
+    <div class="container">
+        <div class="jumbotron">
+            <p class="lead">Volte sempre.</p>
+            <p class="lead">Logar novamente</p>
+            <p><a class="btn btn-lg btn-success" href="{% url 'login' %}" role="button">Login</a></p>
+        </div>
+    </div>
+{% endblock %}

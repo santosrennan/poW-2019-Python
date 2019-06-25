@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <script type="application/javascript">
+        $('#sidebar').hide;
+        $('#content').css("width", "100%");
+    </script>
+
+    {% if user.is_authenticated  == False %}
+        <div class="jumbotron">
+            <h1>PoW - Proof of Work </h1>
+            <p class="lead">Entre na nossa plataforma de GameStore e veja que a Steam não ta com nada.</p>
+            <p class="lead">Venha jogar ou publicar seus indie games, e participe desta comunidade.</p>
+            <p class="lead">Não recomendamos esse site se você for universitario, BEBA ÁGUA E FAÇA SEUS TRABALHOS!</p>
+ <p></p>
+            <p class="lead">ENTRE JÁ NESSE UNIVERSO FEITO POR ESTUDANTES SUGADOS POR CURSAR PCS!</p>
+            <p><a class="btn btn-lg btn-success" href="{% url 'register' %}" role="button">Registre-se AGORA!</a></p>
+        </div>
+    {% endif %}
+
+    {% if user.is_authenticated and user.profile.is_developer == False %}
+    <div class="jumbotron">
+        <h1>VOLTOU O VICIADO {{ user.username }}!</h1>
+        <br>
+        <p class="lead">PoW - Proof of Work.</p>
+        <p class="lead">Ta com tempo livre né?</p>
+		<p class="lead">Não recomendamos esse site se você for universitario, BEBA ÁGUA E FAÇA SEUS TRABALHOS!</p>
+        <p class="lead">Na barra de navegação acesse a loja  e gaste seu precioso dinheiro ou acesse seus jogue e diverta-se!</p>
+  
+        <p class="lead">Ta sem tempo? Então faça logout!</p>
+    </div>
+    {% endif %}
+
+
+    {% if user.is_authenticated and user.profile.is_developer %}
+        <div class="jumbotron">
+        <h1>EAE MAN KKK VOLTOU {{ user.username }}!</h1>
+        <br>
+        <p class="lead">PoW - Proof of Work.</p>
+        <p class="lead">A barra de navegação na parte superior dá acesso a diferentes recursos do site.</p>
+        <p class="lead"></p>
+        <p class="lead"></p>
+        <p class="lead">DevArea -> Gerenciar games: adicionar, editar e excluir os jogos que você desenvolve.</p>
+        <p class="lead">DevArea ->Inveetário: dê uma olhada nas suas próprias estatísticas de vendas.</p>
+    </div>
+    {% endif %}
+
+    <script type="application/javascript">
+        $( "#navbar-Home" ).addClass('active');
+    </script>
+{% endblock %}

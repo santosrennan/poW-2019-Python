@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% comment %}
+    In this page we let the user login into the website using the normal login or with the fb one
+{% endcomment %}
+{% block content %}
+    <div class="container">
+        <form method="post" action="#" class="form-login">
+            <h1 class="form-signin-heading" id="local-title">Faça seu login</h1>
+            {% csrf_token %}
+            <table class="spaced_table">
+                {{ form.as_table }}
+            </table>
+            <input type="submit" class="btn btn-lg btn-primary btn-block" value="Login" />
+            <a href="{% url 'password_reset'%}" id="passwordReset">Esqueceu a senha?</a>
+            <br/>
+            <br/>
+            <p class="center-block text-center accountSpan">Logar com sua rede social</p>
+         <div>
+            <a href="{% url 'social:begin' 'google-oauth2' %}"><img src="https://developers.google.com/identity/images/btn_google_signin_light_normal_web.png" alt="Login with Google"></a><br>
+        </div>
+            <!-- Facebook login -->
+            <a class="form-control btn btn-primary" onclick="$(this).button('loading');" id="facebook-button" name="facebook" href="{% url "social:begin" backend='facebook' %}">
+                Facebook Login
+            </a>
+        </form>
+
+    </div>
+{% endblock %}
+
+{% block sidebar %}
+    <div id="sidebarContent">
+        <p class="lead">Vem viciado</p>
+        <p>Faça seu login para acessar a plataforma e ter seu vasto conteúdo que apenas a PoW pode oferecer.</p>
+        <p>
+Insira suas credenciais para ter acesso ao seu jogo ou à sua plataforma de desenvolvedor</p>
+        <br/>
+        <br/>
+        <p class="lead">Ainda não tem conta?</p>
+        <a class="btn btn-lg btn-success" href="{% url 'register' %}" role="button">Faça seu cadastro</a>
+    </div>
+
+    <div id="status">
+    </div>
+
+{% endblock %}

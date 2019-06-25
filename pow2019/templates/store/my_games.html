@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Meu jogos{% endblock %}
+
+{% block content %}
+
+    <div class="table-responsive" id="myTableContainer">
+      <table class="table table-hover" id="myTable">
+        <thead>
+          <tr>
+            <th data-field="logo">Logo</th>
+            <th data-field="name">Nome</th>
+            <th data-field="category" >Categoria</th>
+            <th data-field="publicationDate">Data da publicação</th>
+            <th data-field="popularity">Popularidade</th>
+            <th data-field="dowloand" >Baixar</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for g in games %}
+            <tr>
+                <td><img alt="image not available" class="gameImage" src="{{ g.logo }}"></td>
+                <td><a href="{{ g.url }}">{{ g.name }}</a></td>
+                <td>{{ g.category }}</td>
+                <td><script type="text/javascript">document.write(formatDate("{{ g.publicationDate }}"));</script></td>
+                <td>{{ g.popularity }}</td>
+                <td><a href="http://www.example.com/myfile.txt" download="JOGODAHORA">Faça Download!</a></td>
+            </tr>
+         {% endfor %}
+        </tbody>
+      </table>
+      </div>
+
+
+     <script type="text/javascript">
+        $( "#navbar-MyGames" ).addClass('active');
+     </script>
+
+{% endblock %}
+
+{% block sidebar %}
+
+    <div id="sidebarContent">
+        <p class="lead">Sua coleção de games.</p>
+        <p>Nesta página você pode passar pelo seu jogo e escolher o que você quer jogar.</p>
+        <p>Abra um jogo clicando no nome dele ou faça seu download.</p>
+    </div>
+
+{% endblock %}

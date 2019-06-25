@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% comment %}
+    In this page a user can regiter to the website
+{% endcomment %}
+{% block content %}
+    <form method="POST" action="#" class="form-signin">
+        <h1 class="form-signin-heading" id="local-title">Crie sua conta</h1>
+        {% csrf_token %}
+        <table class="spaced_table">
+        {{ form.as_table }}
+        </table>
+        <input type="submit" class="btn btn-lg btn-primary btn-block" value="Submit" id="confirmButton"/>
+    </form>
+
+{% endblock %}
+
+{% block sidebar %}
+
+    <div id="sidebarContent">
+        <p class="lead">Vire um viciado</p>
+        <p>
+Esta é uma forma simples de se cadastrar em nosso site, preencha todas as informações necessárias e escolha se você é publicador ou não.</p>
+        <p>Se você escolher publicador, poderá adicionar jogo em nossa plataforma e verificar sua renda com estatísticas.</p>
+        <p>Após o seu registro, você receberá um e-mail com um link usado para ativar sua conta.</p>
+    </div>
+
+{% endblock %}

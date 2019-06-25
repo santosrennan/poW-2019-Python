@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Account{% endblock %}
+
+{% block content %}
+
+    {% comment %}
+        Basic div to display some information about the user, name, developer or player
+        And if isn't logged in with facebook we give him the possibility to change his password
+    {% endcomment %}
+    <div class="center-div">
+        <h1 class="form-signin-heading" id="local-title">Perfil</h1>
+        <p class="accountP">Username: <span class="accountSpan">{{ user.username }}</span></p>
+        {% if user.profile.is_developer %}
+            <p class="accountP">Account type: <span class="accountSpan">Publicador</span></p>
+        {% endif %}
+        {% if user.profile.is_player %}
+            <p class="accountP">Account type: <span class="accountSpan">Jogador</span></p>
+        {% endif %}
+        <br/>
+        {% if backends.associated|length > 0 %}
+            <p class="accountP">Logado com seu Google: <span class="accountSpan">google</span></p>
+        {% else %}
+            <a class="btn btn-warning btn-block cartButton" href="{% url 'password_change' %}" id="confirmButton">Mudar senha</a>
+        {% endif %}
+
+    </div>
+
+{% endblock %}
+
+{% block sidebar %}
+    {% comment %}
+        Additional information
+    {% endcomment %}
+    <div id="sidebarContent">
+        <p class="lead">Sua Conta</p>
+        <p>Aqui você pode encontrar informações sobre sua conta.</p>
+        <p>Se você é um jogador ou um desenvolvedor.</p>
+        <p>Caso voce queira alterar sua senha.</p>
+    </div>
+
+{% endblock %}
