@@ -22,3 +22,6 @@ Comandos de auxilio
 
 É importante que a configuração seja bem realizada para rodar todas dependencias do django e do python.
 Criação de Env é imporante para que as dependencias do projeto não de conflito com as dependencias possiveis que já estejam na maquina.
+
+Atenção caso de algum erro de social ou no migrate favor verificar a exception: Erro possiveis estão descritos nessa issue : https://github.com/omab/python-social-auth/issues/962
+
