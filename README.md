@@ -1,3 +1,6 @@
+Versão oficial do projeto de PCS - Unirio
+versão anterior de base : https://github.com/santosrennan/pcs2019
+
 Como instalar?
 
 1-Tenha o python em seu computador
