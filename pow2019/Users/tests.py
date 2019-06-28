@@ -7,8 +7,6 @@ from django.contrib.auth.models import User
 class ModelsTest(TestCase):
 
     """
-    Luigi
-    Testing creation and update of Profile objects.
     """
     def testProfile(self):
         self.us1 = User.objects.create(username="user1", password="12345678", email="xx@gmail.com")
