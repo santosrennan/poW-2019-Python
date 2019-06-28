@@ -7,3 +7,4 @@ requests==2.9.1
 social-auth-app-django==1.1.0
 social-auth-core==1.2.0
 djangorestframework==3.6.2
+python-social-auth==0.2.21
