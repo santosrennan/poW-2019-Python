@@ -6,9 +6,7 @@ from Store.models import Game
 from Store.models import Category
 from django.contrib.auth.models import User, Group
 """
-Luigi
-Testing creation/update of SavedGame and PlayedMatch models (creation of Profile and Game needed in order to see the
-test works).
+
 """
 
 
